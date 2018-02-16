@@ -34,7 +34,7 @@ bootstrap =
         ]
 
 navbar model =
-    nav [ class "navbar navbar-expand-lg navbar-light bg-light"
+    nav [ class "nav nav-pills navbar-expand-md navbar-light"
         ]
         [ button [ class "navbar-toggler btn-default", attribute "data-toggle" "collapse"
         , attribute "data-target" "#navbarNav", attribute "aria-controls" "navbarNav"
@@ -43,13 +43,16 @@ navbar model =
           , div
               [ class "collapse navbar-collapse", id "navbarNav" ]
               [ ul [ class "navbar-nav" ]
-              [ button [ class "nav-item", class "btn btn-outline btn-block" ]
-              [ a [ class "nav-link", href "#challenges" ] [ text "Battles" ]
+              [ li [ class "nav-item" ]
+              [ a [ class "nav-link", href "#challenges" ] [ text "Home" ]
               ]
-              , button [ class "nav-item", class "btn btn-outline btn-block" ]
+              , li [ class "nav-item" ]
               [ a [ class "nav-link", href "#signup" ] [ text "Signup" ]
               ]
-              , button [ class "nav-item", class "btn btn-outline btn-block" ]
+              , li [ class "nav-item" ]
+              [ a [ class "nav-link" , href "#rapper" ] [ text "Rappers" ]
+              ]
+              , li [ class "nav-item" ]
               [ a [ class "nav-link", href "#search" ] [ text "Search" ]
               ]
               ]
@@ -285,7 +288,7 @@ viewChallenges =
                       [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
                       [ text "Give Rep" ]
                       ]
-                  , p [ class "btn btn-light text-warning alert-warning"
+                  , button [ class "btn btn-light text-warning"
                            , attribute "data-toggle" "popover"
                            , attribute "data-placement" "right"
                            , title "This is the Rep that you have left to give!"
@@ -307,4 +310,4 @@ viewChallenges =
                         ]
                   ]
             ]
-          ]
+      ]

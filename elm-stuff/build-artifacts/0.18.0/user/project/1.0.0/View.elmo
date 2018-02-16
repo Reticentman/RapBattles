@@ -467,10 +467,10 @@ var _user$project$View$viewChallenges = A2(
 												_1: {
 													ctor: '::',
 													_0: A2(
-														_elm_lang$html$Html$p,
+														_elm_lang$html$Html$button,
 														{
 															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$class('btn btn-light text-warning alert-warning'),
+															_0: _elm_lang$html$Html_Attributes$class('btn btn-light text-warning'),
 															_1: {
 																ctor: '::',
 																_0: A2(_elm_lang$html$Html_Attributes$attribute, 'data-toggle', 'popover'),
@@ -925,7 +925,7 @@ var _user$project$View$navbar = function (model) {
 		_elm_lang$html$Html$nav,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('navbar navbar-expand-lg navbar-light bg-light'),
+			_0: _elm_lang$html$Html_Attributes$class('nav nav-pills navbar-expand-md navbar-light'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -994,15 +994,11 @@ var _user$project$View$navbar = function (model) {
 							{
 								ctor: '::',
 								_0: A2(
-									_elm_lang$html$Html$button,
+									_elm_lang$html$Html$li,
 									{
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$class('nav-item'),
-										_1: {
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$class('btn btn-outline btn-block'),
-											_1: {ctor: '[]'}
-										}
+										_1: {ctor: '[]'}
 									},
 									{
 										ctor: '::',
@@ -1019,7 +1015,7 @@ var _user$project$View$navbar = function (model) {
 											},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('Battles'),
+												_0: _elm_lang$html$Html$text('Home'),
 												_1: {ctor: '[]'}
 											}),
 										_1: {ctor: '[]'}
@@ -1027,15 +1023,11 @@ var _user$project$View$navbar = function (model) {
 								_1: {
 									ctor: '::',
 									_0: A2(
-										_elm_lang$html$Html$button,
+										_elm_lang$html$Html$li,
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html_Attributes$class('nav-item'),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$class('btn btn-outline btn-block'),
-												_1: {ctor: '[]'}
-											}
+											_1: {ctor: '[]'}
 										},
 										{
 											ctor: '::',
@@ -1060,15 +1052,11 @@ var _user$project$View$navbar = function (model) {
 									_1: {
 										ctor: '::',
 										_0: A2(
-											_elm_lang$html$Html$button,
+											_elm_lang$html$Html$li,
 											{
 												ctor: '::',
 												_0: _elm_lang$html$Html_Attributes$class('nav-item'),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$class('btn btn-outline btn-block'),
-													_1: {ctor: '[]'}
-												}
+												_1: {ctor: '[]'}
 											},
 											{
 												ctor: '::',
@@ -1079,18 +1067,48 @@ var _user$project$View$navbar = function (model) {
 														_0: _elm_lang$html$Html_Attributes$class('nav-link'),
 														_1: {
 															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$href('#search'),
+															_0: _elm_lang$html$Html_Attributes$href('#rapper'),
 															_1: {ctor: '[]'}
 														}
 													},
 													{
 														ctor: '::',
-														_0: _elm_lang$html$Html$text('Search'),
+														_0: _elm_lang$html$Html$text('Rappers'),
 														_1: {ctor: '[]'}
 													}),
 												_1: {ctor: '[]'}
 											}),
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$li,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('nav-item'),
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$a,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class('nav-link'),
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$href('#search'),
+																_1: {ctor: '[]'}
+															}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Search'),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
 									}
 								}
 							}),
