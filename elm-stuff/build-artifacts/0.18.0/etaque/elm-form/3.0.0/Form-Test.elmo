@@ -1,0 +1,31 @@
+var _etaque$elm_form$Form_Test$testValidation = F2(
+	function (validation, _p0) {
+		var _p1 = _p0;
+		return A2(
+			_elm_community$elm_test$Test$test,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'expect ',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p1._1),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'with input \'',
+						A2(_elm_lang$core$Basics_ops['++'], _p1._0, '\'')))),
+			function (_p2) {
+				var _p3 = _p2;
+				return A2(_etaque$elm_form$Form_Test_Helpers$getValidationExpectation, validation, _p1);
+			});
+	});
+var _etaque$elm_form$Form_Test$describeValidation = F3(
+	function (description, validation, cases) {
+		var testCases = A2(
+			_elm_lang$core$List$map,
+			_etaque$elm_form$Form_Test$testValidation(validation),
+			cases);
+		return A2(
+			_elm_community$elm_test$Test$describe,
+			A2(_elm_lang$core$Basics_ops['++'], description, ' validations'),
+			testCases);
+	});

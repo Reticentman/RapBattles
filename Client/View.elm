@@ -121,8 +121,8 @@ page model =
         Types.Promoted ->
             viewChallenges
 
---        Types.Battle ->
---            viewBattle
+        Types.Rapper ->
+            Session.View.viewRapper
 
         Types.NotFoundRoute ->
             notFoundView
@@ -280,7 +280,7 @@ viewChallenges =
                   , p [ class "card-title" ] [ text "DJ Khalad" ]
                   , p [ class "text-info text-danger" ] [ text "Rep 100k+" ]
                   , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                  , a [ href "#/search" ]
+                  , a [ href "#/search" ] -- test
                       [ button
                       [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
                       [ text "Give Rep" ]

@@ -47,9 +47,6 @@ update msg model =
         UpdateForm formMsg ->
             ( { model | form = Form.update validation formMsg model.form }, Cmd.none )
 
---        UpdateBattle battle ->
---            ( { model | battle = battle }, Cmd.none)
-
 searchFilter : String -> User -> Bool
 searchFilter search user =
     String.contains (String.toLower search) (String.toLower user.username)

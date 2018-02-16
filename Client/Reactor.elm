@@ -9,7 +9,7 @@ import View exposing (root)
 main : Program Never Types.Model Types.Msg
 main =
     Navigation.program Types.OnLocationChange
-        { init = init 
+        { init = init
         , view = root
         , update = update
         , subscriptions = subscriptions

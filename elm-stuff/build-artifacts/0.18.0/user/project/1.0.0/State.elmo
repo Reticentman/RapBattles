@@ -1,0 +1,115 @@
+var _user$project$State$mkUser = function (cu) {
+	return {email: cu.email, image: 'image.png', links: 'You can set your own links for yo swag!', password: cu.password, rep: '0', username: cu.username, online: true};
+};
+var _user$project$State$validation = A4(
+	_etaque$elm_form$Form_Validate$map3,
+	_user$project$Types$CreateUser,
+	A2(_etaque$elm_form$Form_Validate$field, 'username', _etaque$elm_form$Form_Validate$string),
+	A2(_etaque$elm_form$Form_Validate$field, 'email', _etaque$elm_form$Form_Validate$string),
+	A2(_etaque$elm_form$Form_Validate$field, 'password', _etaque$elm_form$Form_Validate$string));
+var _user$project$State$searchFilter = F2(
+	function (search, user) {
+		return A2(
+			_elm_lang$core$String$contains,
+			_elm_lang$core$String$toLower(search),
+			_elm_lang$core$String$toLower(user.username));
+	});
+var _user$project$State$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Search':
+				if (_p0._0 === '') {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								search: _elm_lang$core$Maybe$Just('')
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								search: _elm_lang$core$Maybe$Just(_p0._0)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				}
+			case 'OnLocationChange':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							route: _user$project$Routing$parseLocation(_p0._0)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'UsersResponse':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{users: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'AddUserResponse':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{
+							users: A3(
+								_krisajenkins$remotedata$RemoteData$map2,
+								F2(
+									function (x, y) {
+										return {ctor: '::', _0: x, _1: y};
+									}),
+								_p0._0,
+								model.users)
+						}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SendCreateUser':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$User_Rest$createCmd(_p0._0)
+				};
+			default:
+				if (_p0._0.ctor === 'Submit') {
+					var _p1 = _etaque$elm_form$Form$getOutput(model.form);
+					if (_p1.ctor === 'Just') {
+						return {
+							ctor: '_Tuple2',
+							_0: model,
+							_1: _user$project$User_Rest$createCmd(
+								_user$project$State$mkUser(_p1._0))
+						};
+					} else {
+						return A2(
+							_elm_lang$core$Debug$log,
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'Something isn\'t working properly ',
+								_elm_lang$core$Basics$toString(_p1)),
+							{ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none});
+					}
+				} else {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							model,
+							{
+								form: A3(_etaque$elm_form$Form$update, _user$project$State$validation, _p0._0, model.form)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				}
+		}
+	});

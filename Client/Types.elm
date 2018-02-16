@@ -15,7 +15,7 @@ type Route
     | Login
     | Challenges
     | Promoted
---    | Battle
+    | Rapper
     | NotFoundRoute
 
 type alias User =

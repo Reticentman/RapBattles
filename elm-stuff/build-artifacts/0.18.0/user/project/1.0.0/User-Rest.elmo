@@ -1,0 +1,22 @@
+var _user$project$User_Rest$getAll = function () {
+	var endpoint = '/api/v1/user';
+	return A2(
+		_elm_lang$core$Platform_Cmd$map,
+		_user$project$Types$UsersResponse,
+		_krisajenkins$remotedata$RemoteData$sendRequest(
+			A2(_elm_lang$http$Http$get, endpoint, _user$project$User_Decode$list)));
+}();
+var _user$project$User_Rest$createCmd = function (user) {
+	var body = _elm_lang$http$Http$jsonBody(
+		_user$project$User_Encode$one(user));
+	var _p0 = A2(
+		_elm_lang$core$Debug$log,
+		_elm_lang$core$Basics$toString(body),
+		_elm_lang$core$Basics$identity);
+	var endpoint = A2(_elm_lang$core$Basics_ops['++'], '/api/v1/user/', user.username);
+	return A2(
+		_elm_lang$core$Platform_Cmd$map,
+		_user$project$Types$AddUserResponse,
+		_krisajenkins$remotedata$RemoteData$sendRequest(
+			A3(_elm_lang$http$Http$post, endpoint, body, _user$project$User_Decode$one)));
+};

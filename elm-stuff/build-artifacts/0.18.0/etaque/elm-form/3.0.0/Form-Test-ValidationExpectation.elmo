@@ -1,0 +1,10 @@
+var _etaque$elm_form$Form_Test_ValidationExpectation$InvalidCustomError = function (a) {
+	return {ctor: 'InvalidCustomError', _0: a};
+};
+var _etaque$elm_form$Form_Test_ValidationExpectation$Invalid = function (a) {
+	return {ctor: 'Invalid', _0: a};
+};
+var _etaque$elm_form$Form_Test_ValidationExpectation$ValidDecodesTo = function (a) {
+	return {ctor: 'ValidDecodesTo', _0: a};
+};
+var _etaque$elm_form$Form_Test_ValidationExpectation$Valid = {ctor: 'Valid'};
