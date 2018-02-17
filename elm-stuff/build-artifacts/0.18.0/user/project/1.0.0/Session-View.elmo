@@ -3,7 +3,11 @@ var _user$project$Session_View$viewRapper = A2(
 	{
 		ctor: '::',
 		_0: _elm_lang$html$Html_Attributes$class('row'),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('rapperview'),
+			_1: {ctor: '[]'}
+		}
 	},
 	{
 		ctor: '::',
@@ -11,7 +15,7 @@ var _user$project$Session_View$viewRapper = A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('card text-center rounded w-25 h-75'),
+				_0: _elm_lang$html$Html_Attributes$id('ProfilePic'),
 				_1: {ctor: '[]'}
 			},
 			{
@@ -20,7 +24,7 @@ var _user$project$Session_View$viewRapper = A2(
 					_elm_lang$html$Html$img,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('card-img-top rounded center'),
+						_0: _elm_lang$html$Html_Attributes$class('card-img-top img-rounded center w-100 l-100'),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html_Attributes$src('https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg'),
@@ -48,7 +52,7 @@ var _user$project$Session_View$viewRapper = A2(
 							_elm_lang$html$Html$button,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('btn btn-success'),
+								_0: _elm_lang$html$Html_Attributes$class('btn btn-success w-50'),
 								_1: {ctor: '[]'}
 							},
 							{
@@ -62,7 +66,7 @@ var _user$project$Session_View$viewRapper = A2(
 								_elm_lang$html$Html$button,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('btn btn-light dropdown-toggle'),
+									_0: _elm_lang$html$Html_Attributes$class('btn btn-light dropdown-toggle w-50'),
 									_1: {
 										ctor: '::',
 										_0: A2(_elm_lang$html$Html_Attributes$attribute, 'data-toggle', 'dropdown'),
@@ -183,7 +187,112 @@ var _user$project$Session_View$viewRapper = A2(
 											}
 										}
 									}),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$h1,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Statistics'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$p,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('alert alert-primary'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Battles Performed: 7,577'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$p,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('alert alert-success'),
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Battles Won: 7,077'),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$p,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class('alert alert-danger'),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Battles Lost: 500'),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$p,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class('alert alert-dark'),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Win Percentage: 93.4%'),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$p,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$class('alert alert-info'),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('Rep 75,521 (Rank: 2)'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$button,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$class('btn btn-info'),
+																	_1: {
+																		ctor: '::',
+																		_0: _elm_lang$html$Html_Attributes$title('Click here to give Rep to rappers to help them get bigger!'),
+																		_1: {ctor: '[]'}
+																	}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('Give Rep'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
 							}
 						}
 					}
@@ -195,114 +304,28 @@ var _user$project$Session_View$viewRapper = A2(
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('card w-75 h-75'),
+					_0: _elm_lang$html$Html_Attributes$class('pl-50'),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$h1,
-						{ctor: '[]'},
+						_elm_lang$html$Html$iframe,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Statistics'),
-							_1: {ctor: '[]'}
-						}),
-					_1: {
-						ctor: '::',
-						_0: A2(
-							_elm_lang$html$Html$p,
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('alert alert-primary'),
-								_1: {ctor: '[]'}
-							},
-							{
-								ctor: '::',
-								_0: _elm_lang$html$Html$text('Battles Performed: 7,577'),
-								_1: {ctor: '[]'}
-							}),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$html$Html$p,
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('alert alert-success'),
-									_1: {ctor: '[]'}
-								},
-								{
-									ctor: '::',
-									_0: _elm_lang$html$Html$text('Battles Won: 7,077'),
-									_1: {ctor: '[]'}
-								}),
+							_0: _elm_lang$html$Html_Attributes$width(650),
 							_1: {
 								ctor: '::',
-								_0: A2(
-									_elm_lang$html$Html$p,
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class('alert alert-danger'),
-										_1: {ctor: '[]'}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text('Battles Lost: 500'),
-										_1: {ctor: '[]'}
-									}),
+								_0: _elm_lang$html$Html_Attributes$height(350),
 								_1: {
 									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$p,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$class('alert alert-dark'),
-											_1: {ctor: '[]'}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Win Percentage: 93.4%'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$p,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$class('alert alert-info'),
-												_1: {ctor: '[]'}
-											},
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html$text('Rep 75,521 (Rank: 2)'),
-												_1: {ctor: '[]'}
-											}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$button,
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$class('btn btn-info'),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Attributes$title('Click here to give Rep to rappers to help them get bigger!'),
-														_1: {ctor: '[]'}
-													}
-												},
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Give Rep'),
-													_1: {ctor: '[]'}
-												}),
-											_1: {ctor: '[]'}
-										}
-									}
+									_0: _elm_lang$html$Html_Attributes$src('https://www.youtube.com/embed/wsrPWMeYPxY?ecver=2'),
+									_1: {ctor: '[]'}
 								}
 							}
-						}
-					}
+						},
+						{ctor: '[]'}),
+					_1: {ctor: '[]'}
 				}),
 			_1: {ctor: '[]'}
 		}

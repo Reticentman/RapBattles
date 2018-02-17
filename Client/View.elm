@@ -31,17 +31,21 @@ bootstrap =
             [ src "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
             ]
             []
+        , node "link"
+          [ rel "stylesheet"
+          , href "/client/style.css"
+          ] []
         ]
 
 navbar model =
-    nav [ class "nav nav-pills navbar-expand-md navbar-light"
+    nav [ class "nav nav-pills navbar-expand-md navbar-light mb-0"
         ]
         [ button [ class "navbar-toggler btn-default", attribute "data-toggle" "collapse"
         , attribute "data-target" "#navbarNav", attribute "aria-controls" "navbarNav"
         , attribute "aria-expanded" "false", attribute "aria-label" "Toggle navigation" ]
           [ span [ class "navbar-toggler-icon"] [ ] ]
           , div
-              [ class "collapse navbar-collapse", id "navbarNav" ]
+              [ class "collapse navbar-collapse navbar-nav-scroll text-center", id "navbarNav" ]
               [ ul [ class "navbar-nav" ]
               [ li [ class "nav-item" ]
               [ a [ class "nav-link", href "#challenges" ] [ text "Home" ]
@@ -60,19 +64,13 @@ navbar model =
         ]
 
 
-
-
-
-
-
-
 root : Model -> Html Msg
 root model =
     div []
         [ bootstrap
         , navbar model
         , div
-            [ class "container"
+            [ class "container-fluid"
             ]
             [ page model]
         ]
@@ -173,7 +171,9 @@ viewSignup form =
                 ]
             ]
     in
-        div [ class "form-horizontal" ]
+        div [ class "form-horizontal"
+            , id "signup"
+            ]
             [ h1 [ class "form" ] [ text "Signup Page" ]
             , Input.textInput username
                 [ class "form-control"
@@ -224,10 +224,14 @@ viewLogin session =
 
 viewChallenges : Html Msg
 viewChallenges =
-  div [ class "row" ]
-      [ div [ class "col-sm text-center" ]
-            [ div [ class "card", style [("width", "200px")
-                                        ,("height", "582px")] ]
+  div [ class "row"
+      , id "battle"
+      , style [("width","1300px")]
+      ]
+      [ div [ class "col text-center" ]
+            [ div [ class "card"
+
+                  ]
                 [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
                 , p [ class "card-title" ] [ text "Chance The Rapper" ]
                 , p [ class "card-title text-danger" ] [ text "Rep 75,521"]
@@ -257,9 +261,9 @@ viewChallenges =
                           ]
                  ]
             ]
-      , div [ class "col-sm text-center", style [("width", "800px")
-                                                ,("height", "582px")
-                                                ]
+      , div [ class "col-sm text-center"
+
+            , id "middleBattle"
             ]
             [ p [ class "alert alert-success",style [("font-size", "34px")]] [ text "Nick with a $7mil Donation!" ]
             , div []
@@ -274,8 +278,9 @@ viewChallenges =
                 ]
                 ]
       , div [ class "col-sm text-center" ]
-            [ div [ class "card", style [("width", "200px")
-                                        ,("height", "582px")] ]
+            [ div [ class "card"
+
+                    ]
                   [ img
                       [ class "card-img-top", class "rounded"
                       , src "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"

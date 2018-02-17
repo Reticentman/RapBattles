@@ -29,19 +29,19 @@ viewAccount session =
 
 viewRapper : Html Msg
 viewRapper =
-    div [ class "row" ]
+    div [ class "row"
+        , id "rapperview"
+        ]
         [
-        div [ class "card text-center rounded w-25 h-75"
-
-            ]
-            [ img [ class "card-img-top rounded center"
+        div [ id "ProfilePic"]
+            [ img [ class "card-img-top img-rounded center w-100 l-100"
                   , src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
                   ]
                   []
             , h5 [ class "alert alert-dark" ]
                  [ text "Chance The Rapper" ]
-            , button [ class "btn btn-success" ] [ text "Donate!" ]
-            , button [ class "btn btn-light dropdown-toggle"
+            , button [ class "btn btn-success w-50" ] [ text "Donate!" ]
+            , button [ class "btn btn-light dropdown-toggle w-50"
                      , attribute "data-toggle" "dropdown"
                      , attribute "aria-expanded" "false"
                      ]
@@ -59,15 +59,18 @@ viewRapper =
                          , a [ class "dropdown-item", href "http://chanceraps.com" ]
                              [ text "Personal Link 5" ]
                          ]
-            ]
-        , div [ class "card w-75 h-75"
-              ]
-              [ h1 [] [ text "Statistics" ]
+              , h1 [] [ text "Statistics" ]
               , p [ class "alert alert-primary" ] [ text "Battles Performed: 7,577" ]
               , p [ class "alert alert-success" ] [ text "Battles Won: 7,077" ]
               , p [ class "alert alert-danger" ] [ text "Battles Lost: 500"]
               , p [ class "alert alert-dark" ] [ text "Win Percentage: 93.4%" ]
               , p [ class "alert alert-info" ] [ text "Rep 75,521 (Rank: 2)"]
               , button [ class "btn btn-info", title "Click here to give Rep to rappers to help them get bigger!" ] [ text "Give Rep" ]
+              ]
+        , div [ class "pl-50" ]
+              [ iframe [ width 650
+                       , height 350
+                       , src "https://www.youtube.com/embed/wsrPWMeYPxY?ecver=2" ]
+                       []
               ]
         ]

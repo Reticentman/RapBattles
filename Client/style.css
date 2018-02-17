@@ -1,0 +1,35 @@
+body
+{
+  background-color: white;
+  padding-left: 10rem;
+  padding-right: 10rem;
+  border-left: 1rem solid;
+  border-right: 1rem solid;
+}
+
+#ProfilePic
+{
+  padding-right: 20px;
+}
+
+#rapperview
+{
+  padding-top: 2rem;
+  padding-left: 1rem;
+}
+
+#battle
+{
+  padding-top: 2rem;
+}
+
+#middleBattle
+{
+  padding-left: 0rem;
+  padding-right: 0rem;
+}
+
+#signup
+{
+  padding-top: 2rem;
+}

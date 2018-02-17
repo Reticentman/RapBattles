@@ -3,7 +3,20 @@ var _user$project$View$viewChallenges = A2(
 	{
 		ctor: '::',
 		_0: _elm_lang$html$Html_Attributes$class('row'),
-		_1: {ctor: '[]'}
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$id('battle'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$style(
+					{
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'width', _1: '1300px'},
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		}
 	},
 	{
 		ctor: '::',
@@ -11,7 +24,7 @@ var _user$project$View$viewChallenges = A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('col-sm text-center'),
+				_0: _elm_lang$html$Html_Attributes$class('col text-center'),
 				_1: {ctor: '[]'}
 			},
 			{
@@ -21,20 +34,7 @@ var _user$project$View$viewChallenges = A2(
 					{
 						ctor: '::',
 						_0: _elm_lang$html$Html_Attributes$class('card'),
-						_1: {
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$style(
-								{
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'width', _1: '200px'},
-									_1: {
-										ctor: '::',
-										_0: {ctor: '_Tuple2', _0: 'height', _1: '582px'},
-										_1: {ctor: '[]'}
-									}
-								}),
-							_1: {ctor: '[]'}
-						}
+						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
@@ -245,16 +245,7 @@ var _user$project$View$viewChallenges = A2(
 					_0: _elm_lang$html$Html_Attributes$class('col-sm text-center'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$style(
-							{
-								ctor: '::',
-								_0: {ctor: '_Tuple2', _0: 'width', _1: '800px'},
-								_1: {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: 'height', _1: '582px'},
-									_1: {ctor: '[]'}
-								}
-							}),
+						_0: _elm_lang$html$Html_Attributes$id('middleBattle'),
 						_1: {ctor: '[]'}
 					}
 				},
@@ -352,20 +343,7 @@ var _user$project$View$viewChallenges = A2(
 							{
 								ctor: '::',
 								_0: _elm_lang$html$Html_Attributes$class('card'),
-								_1: {
-									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$style(
-										{
-											ctor: '::',
-											_0: {ctor: '_Tuple2', _0: 'width', _1: '200px'},
-											_1: {
-												ctor: '::',
-												_0: {ctor: '_Tuple2', _0: 'height', _1: '582px'},
-												_1: {ctor: '[]'}
-											}
-										}),
-									_1: {ctor: '[]'}
-								}
+								_1: {ctor: '[]'}
 							},
 							{
 								ctor: '::',
@@ -750,7 +728,11 @@ var _user$project$View$viewSignup = function (form) {
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$class('form-horizontal'),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$id('signup'),
+				_1: {ctor: '[]'}
+			}
 		},
 		{
 			ctor: '::',
@@ -925,7 +907,7 @@ var _user$project$View$navbar = function (model) {
 		_elm_lang$html$Html$nav,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('nav nav-pills navbar-expand-md navbar-light'),
+			_0: _elm_lang$html$Html_Attributes$class('nav nav-pills navbar-expand-md navbar-light mb-0'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -975,7 +957,7 @@ var _user$project$View$navbar = function (model) {
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('collapse navbar-collapse'),
+						_0: _elm_lang$html$Html_Attributes$class('collapse navbar-collapse navbar-nav-scroll text-center'),
 						_1: {
 							ctor: '::',
 							_0: _elm_lang$html$Html_Attributes$id('navbarNav'),
@@ -1169,7 +1151,23 @@ var _user$project$View$bootstrap = A2(
 							_1: {ctor: '[]'}
 						},
 						{ctor: '[]'}),
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: A3(
+							_elm_lang$html$Html$node,
+							'link',
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$rel('stylesheet'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('/client/style.css'),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
 				}
 			}
 		}
@@ -1190,7 +1188,7 @@ var _user$project$View$root = function (model) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('container'),
+							_0: _elm_lang$html$Html_Attributes$class('container-fluid'),
 							_1: {ctor: '[]'}
 						},
 						{
