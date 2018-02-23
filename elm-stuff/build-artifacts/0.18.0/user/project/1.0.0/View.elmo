@@ -69,7 +69,7 @@ var _user$project$View$viewChallenges = A2(
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Chance The Rapper'),
+									_0: _elm_lang$html$Html$text('name'),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -842,66 +842,6 @@ var _user$project$View$notFoundView = A2(
 		_0: _elm_lang$html$Html$text('Not found'),
 		_1: {ctor: '[]'}
 	});
-var _user$project$View$page = function (model) {
-	var _p2 = model.route;
-	switch (_p2.ctor) {
-		case 'Main':
-			return _user$project$User_View$root(model);
-		case 'Account':
-			return _user$project$Session_View$viewAccount(model.session);
-		case 'Signup':
-			return A2(
-				_elm_lang$html$Html$div,
-				{ctor: '[]'},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$map,
-						_user$project$Types$UpdateForm,
-						_user$project$View$viewSignup(model.form)),
-					_1: {ctor: '[]'}
-				});
-		case 'UserPage':
-			var _p5 = _p2._0;
-			var _p3 = model.users;
-			switch (_p3.ctor) {
-				case 'Loading':
-					return _elm_lang$html$Html$text('One moment please!');
-				case 'Failure':
-					return _elm_lang$html$Html$text(
-						_elm_lang$core$Basics$toString(_p3._0));
-				case 'NotAsked':
-					return _elm_lang$html$Html$text('Initializing');
-				default:
-					var filteredUsers = A2(
-						_elm_lang$core$List$filter,
-						function (u) {
-							return _elm_lang$core$Native_Utils.eq(u.username, _p5);
-						},
-						_p3._0);
-					var _p4 = _elm_lang$core$List$head(filteredUsers);
-					if (_p4.ctor === 'Nothing') {
-						return _elm_lang$html$Html$text(
-							A2(
-								_elm_lang$core$Basics_ops['++'],
-								'404: User ',
-								A2(_elm_lang$core$Basics_ops['++'], _p5, ' not found.')));
-					} else {
-						return _user$project$User_View$viewRapper(_p4._0);
-					}
-			}
-		case 'Login':
-			return _user$project$View$viewLogin(model.session);
-		case 'Challenges':
-			return _user$project$View$viewChallenges;
-		case 'Promoted':
-			return _user$project$View$viewChallenges;
-		case 'Rapper':
-			return _user$project$Session_View$viewRapper;
-		default:
-			return _user$project$View$notFoundView;
-	}
-};
 var _user$project$View$navbar = function (model) {
 	return A2(
 		_elm_lang$html$Html$nav,
@@ -1200,4 +1140,35 @@ var _user$project$View$root = function (model) {
 				}
 			}
 		});
+};
+var _user$project$View$page = function (model) {
+	var _p2 = model.route;
+	switch (_p2.ctor) {
+		case 'Main':
+			return _user$project$View$root(model);
+		case 'Account':
+			return _user$project$Session_View$viewAccount(model.session);
+		case 'Signup':
+			return A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$map,
+						_user$project$Types$UpdateForm,
+						_user$project$View$viewSignup(model.form)),
+					_1: {ctor: '[]'}
+				});
+		case 'Login':
+			return _user$project$View$viewLogin(model.session);
+		case 'Challenges':
+			return _user$project$View$viewChallenges;
+		case 'Promoted':
+			return _user$project$View$viewChallenges;
+		case 'Rapper':
+			return _user$project$Session_View$viewRapper;
+		default:
+			return _user$project$View$notFoundView;
+	}
 };

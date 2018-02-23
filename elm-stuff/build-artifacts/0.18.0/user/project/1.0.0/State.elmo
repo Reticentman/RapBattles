@@ -50,47 +50,13 @@ var _user$project$State$update = F2(
 						}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'UsersResponse':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{users: _p0._0}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
-			case 'AddUserResponse':
-				return {
-					ctor: '_Tuple2',
-					_0: _elm_lang$core$Native_Utils.update(
-						model,
-						{
-							users: A3(
-								_krisajenkins$remotedata$RemoteData$map2,
-								F2(
-									function (x, y) {
-										return {ctor: '::', _0: x, _1: y};
-									}),
-								_p0._0,
-								model.users)
-						}),
-					_1: _elm_lang$core$Platform_Cmd$none
-				};
 			case 'SendCreateUser':
-				return {
-					ctor: '_Tuple2',
-					_0: model,
-					_1: _user$project$User_Rest$createCmd(_p0._0)
-				};
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			default:
 				if (_p0._0.ctor === 'Submit') {
 					var _p1 = _etaque$elm_form$Form$getOutput(model.form);
 					if (_p1.ctor === 'Just') {
-						return {
-							ctor: '_Tuple2',
-							_0: model,
-							_1: _user$project$User_Rest$createCmd(
-								_user$project$State$mkUser(_p1._0))
-						};
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					} else {
 						return A2(
 							_elm_lang$core$Debug$log,

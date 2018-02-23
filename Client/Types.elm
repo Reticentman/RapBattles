@@ -11,7 +11,6 @@ type Route
     = Signup
     | Account
     | Main
-    | UserPage String
     | Login
     | Challenges
     | Promoted
@@ -30,7 +29,6 @@ type alias User =
 
 type alias Model =
     { search : Maybe String
-    , users : WebData (List User)
     , searchFilter : String -> User -> Bool
     , route : Route
     , session : Session
@@ -38,6 +36,7 @@ type alias Model =
     , form :
         Form () CreateUser
     }
+
 type alias CreateUser =
     { username : String
     , email : String
@@ -50,8 +49,6 @@ type alias Session =
 type Msg
     = Search String
     | OnLocationChange Location
-    | UsersResponse (WebData (List User))
-    | AddUserResponse (WebData User)
     | SendCreateUser User
     | UpdateForm Form.Msg
 --    | UpdateBattle (WebData User)

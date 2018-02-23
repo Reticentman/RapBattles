@@ -6,7 +6,6 @@ import RemoteData
 import Routing
 import State exposing (update, searchFilter)
 import Types exposing (Model, Msg(..))
-import User.Rest
 import View exposing (root)
 
 
@@ -32,10 +31,9 @@ init location =
     in
         ( { route = currentRoute
           , search = Nothing
-          , users = RemoteData.NotAsked
           , searchFilter = searchFilter
           , session = Nothing
           , form = Form.initial [] State.validation
           }
-        , User.Rest.getAll
+          , Cmd.none
         )

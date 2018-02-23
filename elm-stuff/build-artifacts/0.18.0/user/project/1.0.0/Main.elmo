@@ -5,7 +5,6 @@ var _user$project$Main$init = function (location) {
 		_0: {
 			route: currentRoute,
 			search: _elm_lang$core$Maybe$Nothing,
-			users: _krisajenkins$remotedata$RemoteData$NotAsked,
 			searchFilter: _user$project$State$searchFilter,
 			session: _elm_lang$core$Maybe$Nothing,
 			form: A2(
@@ -13,7 +12,7 @@ var _user$project$Main$init = function (location) {
 				{ctor: '[]'},
 				_user$project$State$validation)
 		},
-		_1: _user$project$User_Rest$getAll
+		_1: _elm_lang$core$Platform_Cmd$none
 	};
 };
 var _user$project$Main$subscriptions = function (model) {

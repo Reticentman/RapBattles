@@ -12,7 +12,6 @@ import Navigation exposing (Location)
 import RemoteData
 import Routing
 import Types exposing (..)
-import User.Rest
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -27,19 +26,13 @@ update msg model =
         OnLocationChange loc ->
             ( { model | route = Routing.parseLocation loc }, Cmd.none )
 
-        UsersResponse userList ->
-            ( { model | users = userList }, Cmd.none )
-
-        AddUserResponse newUser ->
-            ( { model | users = RemoteData.map2 (::) newUser model.users }, Cmd.none )
-
         SendCreateUser user ->
-            ( model, User.Rest.createCmd user )
+            ( model, Cmd.none )
 
         UpdateForm (Form.Submit) ->
             case Form.getOutput model.form of
                 Just createUser ->
-                    ( model, User.Rest.createCmd (mkUser createUser) )
+                    ( model, Cmd.none )
 
                 a ->
                     Debug.log ("Something isn't working properly " ++ toString a) ( model, Cmd.none)

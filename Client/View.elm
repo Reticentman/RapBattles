@@ -10,7 +10,6 @@ import RemoteData exposing (RemoteData(..))
 import Session.View
 import Set exposing (Set)
 import Types exposing (..)
-import User.View
 
 bootstrap =
     div []
@@ -40,28 +39,37 @@ bootstrap =
 navbar model =
     nav [ class "nav nav-pills navbar-expand-md navbar-light mb-0"
         ]
-        [ button [ class "navbar-toggler btn-default", attribute "data-toggle" "collapse"
-        , attribute "data-target" "#navbarNav", attribute "aria-controls" "navbarNav"
-        , attribute "aria-expanded" "false", attribute "aria-label" "Toggle navigation" ]
-          [ span [ class "navbar-toggler-icon"] [ ] ]
+        [ button [ class "navbar-toggler btn-default"
+                 , attribute "data-toggle" "collapse"
+                 , attribute "data-target" "#navbarNav"
+                 , attribute "aria-controls" "navbarNav"
+                 , attribute "aria-expanded" "false"
+                 , attribute "aria-label" "Toggle navigation"
+                 ]
+          [ span [ class "navbar-toggler-icon"
+                 ] []
+          ]
           , div
-              [ class "collapse navbar-collapse navbar-nav-scroll text-center", id "navbarNav" ]
-              [ ul [ class "navbar-nav" ]
-              [ li [ class "nav-item" ]
-              [ a [ class "nav-link", href "#challenges" ] [ text "Home" ]
+              [ class "collapse navbar-collapse navbar-nav-scroll text-center", id "navbarNav"
               ]
-              , li [ class "nav-item" ]
-              [ a [ class "nav-link", href "#signup" ] [ text "Signup" ]
+              [ ul [ class "navbar-nav"
+                   ]
+                   [ li [ class "nav-item"
+                        ]
+                        [ a [ class "nav-link", href "#challenges" ] [ text "Home" ]
+                        ]
+                        , li [ class "nav-item" ]
+                             [ a [ class "nav-link", href "#signup" ] [ text "Signup" ]
+                             ]
+                        , li [ class "nav-item" ]
+                             [ a [ class "nav-link" , href "#rapper" ] [ text "Rappers" ]
+                             ]
+                        , li [ class "nav-item" ]
+                             [ a [ class "nav-link", href "#search" ] [ text "Search" ]
+                             ]
+                   ]
               ]
-              , li [ class "nav-item" ]
-              [ a [ class "nav-link" , href "#rapper" ] [ text "Rappers" ]
-              ]
-              , li [ class "nav-item" ]
-              [ a [ class "nav-link", href "#search" ] [ text "Search" ]
-              ]
-              ]
-              ]
-        ]
+          ]
 
 
 root : Model -> Html Msg
@@ -79,7 +87,7 @@ page : Model -> Html Msg
 page model =
     case model.route of
         Types.Main ->
-            User.View.root model
+            root model
 
         Types.Account ->
             Session.View.viewAccount model.session
@@ -89,29 +97,6 @@ page model =
                 []
                 [ Html.map UpdateForm (viewSignup model.form)
                 ]
-
-        Types.UserPage username ->
-            case model.users of
-                Loading ->
-                    text "One moment please!"
-
-                Failure err ->
-                    text <| toString err
-
-                NotAsked ->
-                    text "Initializing"
-
-                Success users ->
-                    let
-                        filteredUsers =
-                            List.filter (\u -> u.username == username) users
-                    in
-                        case List.head filteredUsers of
-                            Nothing ->
-                                text <| "404: User " ++ username ++ " not found."
-
-                            Just u ->
-                                User.View.viewRapper u
 
         Types.Login ->
             viewLogin model.session
@@ -233,7 +218,7 @@ viewChallenges =
 
                   ]
                 [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
-                , p [ class "card-title" ] [ text "Chance The Rapper" ]
+                , p [ class "card-title" ] [ text "name" ]
                 , p [ class "card-title text-danger" ] [ text "Rep 75,521"]
                 , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
                 , a [ href "#search" ]

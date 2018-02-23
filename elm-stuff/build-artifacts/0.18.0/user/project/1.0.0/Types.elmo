@@ -2,9 +2,9 @@ var _user$project$Types$User = F7(
 	function (a, b, c, d, e, f, g) {
 		return {username: a, image: b, email: c, password: d, online: e, rep: f, links: g};
 	});
-var _user$project$Types$Model = F6(
-	function (a, b, c, d, e, f) {
-		return {search: a, users: b, searchFilter: c, route: d, session: e, form: f};
+var _user$project$Types$Model = F5(
+	function (a, b, c, d, e) {
+		return {search: a, searchFilter: b, route: c, session: d, form: e};
 	});
 var _user$project$Types$CreateUser = F3(
 	function (a, b, c) {
@@ -15,9 +15,6 @@ var _user$project$Types$Rapper = {ctor: 'Rapper'};
 var _user$project$Types$Promoted = {ctor: 'Promoted'};
 var _user$project$Types$Challenges = {ctor: 'Challenges'};
 var _user$project$Types$Login = {ctor: 'Login'};
-var _user$project$Types$UserPage = function (a) {
-	return {ctor: 'UserPage', _0: a};
-};
 var _user$project$Types$Main = {ctor: 'Main'};
 var _user$project$Types$Account = {ctor: 'Account'};
 var _user$project$Types$Signup = {ctor: 'Signup'};
@@ -26,12 +23,6 @@ var _user$project$Types$UpdateForm = function (a) {
 };
 var _user$project$Types$SendCreateUser = function (a) {
 	return {ctor: 'SendCreateUser', _0: a};
-};
-var _user$project$Types$AddUserResponse = function (a) {
-	return {ctor: 'AddUserResponse', _0: a};
-};
-var _user$project$Types$UsersResponse = function (a) {
-	return {ctor: 'UsersResponse', _0: a};
 };
 var _user$project$Types$OnLocationChange = function (a) {
 	return {ctor: 'OnLocationChange', _0: a};

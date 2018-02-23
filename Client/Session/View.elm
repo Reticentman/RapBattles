@@ -33,7 +33,7 @@ viewRapper =
         , id "rapperview"
         ]
         [
-        div [ id "ProfilePic"]
+        div [ id "ProfilePic" ]
             [ img [ class "card-img-top img-rounded center w-100 l-100"
                   , src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
                   ]
