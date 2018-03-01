@@ -74,13 +74,13 @@ navbar model =
 
 root : Model -> Html Msg
 root model =
-    div []
+    div [  class "container-fluid" ]
         [ bootstrap
         , navbar model
         , div
-            [ class "container-fluid"
+            [
             ]
-            [ page model]
+            [ page model ]
         ]
 
 page : Model -> Html Msg
@@ -247,7 +247,6 @@ viewChallenges =
                  ]
             ]
       , div [ class "col-sm text-center"
-
             , id "middleBattle"
             ]
             [ p [ class "alert alert-success",style [("font-size", "34px")]] [ text "Nick with a $7mil Donation!" ]
@@ -264,8 +263,7 @@ viewChallenges =
                 ]
       , div [ class "col-sm text-center" ]
             [ div [ class "card"
-
-                    ]
+                  ]
                   [ img
                       [ class "card-img-top", class "rounded"
                       , src "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"

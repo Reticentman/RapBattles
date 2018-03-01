@@ -1,5 +1,8 @@
+var _user$project$State$addRep = function (user) {
+	return user.rep + 1;
+};
 var _user$project$State$mkUser = function (cu) {
-	return {email: cu.email, image: 'image.png', links: 'You can set your own links for yo swag!', password: cu.password, rep: '0', username: cu.username, online: true};
+	return {email: cu.email, image: 'image.png', links: 'You can set your own links for yo swag!', password: cu.password, rep: 1, username: cu.username, online: true};
 };
 var _user$project$State$validation = A4(
 	_etaque$elm_form$Form_Validate$map3,

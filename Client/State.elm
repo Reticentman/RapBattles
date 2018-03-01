@@ -40,10 +40,13 @@ update msg model =
         UpdateForm formMsg ->
             ( { model | form = Form.update validation formMsg model.form }, Cmd.none )
 
+        AddRep user ->
+            ( { model | rappers = user }, Cmd.none)
+
 searchFilter : String -> User -> Bool
 searchFilter search user =
     String.contains (String.toLower search) (String.toLower user.username)
---change username to rappername?
+
 
 validation : Validate.Validation () CreateUser
 validation =
@@ -58,7 +61,11 @@ mkUser cu =
     , image = "image.png"
     , links = "You can set your own links for yo swag!"
     , password = cu.password
-    , rep = "0"
+    , rep = 1
     , username = cu.username
     , online = True
     }
+
+addRep : User -> Int
+addRep user =
+    user.rep + 1

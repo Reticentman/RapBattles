@@ -10,7 +10,12 @@ var _user$project$Main$init = function (location) {
 			form: A2(
 				_etaque$elm_form$Form$initial,
 				{ctor: '[]'},
-				_user$project$State$validation)
+				_user$project$State$validation),
+			rappers: {
+				ctor: '::',
+				_0: {username: 'Chance The Rapper', image: 'https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg', email: 'chance@gmail.com', password: '123', online: true, rep: 75000, links: 'Link'},
+				_1: {ctor: '[]'}
+			}
 		},
 		_1: _elm_lang$core$Platform_Cmd$none
 	};

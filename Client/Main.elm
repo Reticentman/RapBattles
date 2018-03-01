@@ -34,6 +34,15 @@ init location =
           , searchFilter = searchFilter
           , session = Nothing
           , form = Form.initial [] State.validation
+          , rappers = [ { username = "Chance The Rapper"
+                        , image = "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
+                        , email = "chance@gmail.com"
+                        , password = "123"
+                        , online = True
+                        , rep = 75000
+                        , links = "Link"
+                        }
+                      ]
           }
           , Cmd.none
         )

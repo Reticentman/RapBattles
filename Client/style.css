@@ -1,15 +1,17 @@
 body
 {
   background-color: white;
-  padding-left: 10rem;
-  padding-right: 10rem;
-  border-left: 1rem solid;
-  border-right: 1rem solid;
+  padding-left: 3rem;
+}
+
+
+#card1
+{
 }
 
 #ProfilePic
 {
-  padding-right: 20px;
+  padding-right: 2rem;
 }
 
 #rapperview
@@ -25,8 +27,6 @@ body
 
 #middleBattle
 {
-  padding-left: 0rem;
-  padding-right: 0rem;
 }
 
 #signup

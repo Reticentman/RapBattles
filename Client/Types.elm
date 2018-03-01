@@ -23,7 +23,7 @@ type alias User =
     , email : String
     , password : String
     , online : Bool
-    , rep : String
+    , rep : Int
     , links : String
     }
 
@@ -35,6 +35,7 @@ type alias Model =
 --    , battle : WebData (User)
     , form :
         Form () CreateUser
+    , rappers : List User
     }
 
 type alias CreateUser =
@@ -51,4 +52,5 @@ type Msg
     | OnLocationChange Location
     | SendCreateUser User
     | UpdateForm Form.Msg
+    | AddRep User
 --    | UpdateBattle (WebData User)

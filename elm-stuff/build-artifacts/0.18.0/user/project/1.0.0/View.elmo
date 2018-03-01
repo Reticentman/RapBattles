@@ -1115,7 +1115,11 @@ var _user$project$View$bootstrap = A2(
 var _user$project$View$root = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('container-fluid'),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: _user$project$View$bootstrap,
@@ -1126,11 +1130,7 @@ var _user$project$View$root = function (model) {
 					ctor: '::',
 					_0: A2(
 						_elm_lang$html$Html$div,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('container-fluid'),
-							_1: {ctor: '[]'}
-						},
+						{ctor: '[]'},
 						{
 							ctor: '::',
 							_0: _user$project$View$page(model),
