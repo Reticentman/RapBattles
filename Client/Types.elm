@@ -52,5 +52,5 @@ type Msg
     | OnLocationChange Location
     | SendCreateUser User
     | UpdateForm Form.Msg
-    | AddRep User
+    | AddRep 
 --    | UpdateBattle (WebData User)

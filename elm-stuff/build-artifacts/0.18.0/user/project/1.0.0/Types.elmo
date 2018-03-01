@@ -18,9 +18,7 @@ var _user$project$Types$Login = {ctor: 'Login'};
 var _user$project$Types$Main = {ctor: 'Main'};
 var _user$project$Types$Account = {ctor: 'Account'};
 var _user$project$Types$Signup = {ctor: 'Signup'};
-var _user$project$Types$AddRep = function (a) {
-	return {ctor: 'AddRep', _0: a};
-};
+var _user$project$Types$AddRep = {ctor: 'AddRep'};
 var _user$project$Types$UpdateForm = function (a) {
 	return {ctor: 'UpdateForm', _0: a};
 };

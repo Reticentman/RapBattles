@@ -40,8 +40,8 @@ update msg model =
         UpdateForm formMsg ->
             ( { model | form = Form.update validation formMsg model.form }, Cmd.none )
 
-        AddRep user ->
-            ( { model | rappers = user }, Cmd.none)
+        AddRep ->
+            ( model , Cmd.none)
 
 searchFilter : String -> User -> Bool
 searchFilter search user =

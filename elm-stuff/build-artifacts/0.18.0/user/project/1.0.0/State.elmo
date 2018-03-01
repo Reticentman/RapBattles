@@ -55,7 +55,7 @@ var _user$project$State$update = F2(
 				};
 			case 'SendCreateUser':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-			default:
+			case 'UpdateForm':
 				if (_p0._0.ctor === 'Submit') {
 					var _p1 = _etaque$elm_form$Form$getOutput(model.form);
 					if (_p1.ctor === 'Just') {
@@ -80,5 +80,7 @@ var _user$project$State$update = F2(
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
 				}
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
