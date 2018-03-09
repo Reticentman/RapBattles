@@ -1,0 +1,9 @@
+#+Title: Rap Battles
+* TODO Custom UserPages
+** TODO User picture
+   SCHEDULED: <2018-03-09 Fri>
+** TODO User links 
+   SCHEDULED: <2018-03-10 Sat>
+** TODO Control of videos showing 
+   SCHEDULED: <2018-03-11 Sun>
+
