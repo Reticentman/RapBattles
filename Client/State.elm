@@ -41,7 +41,10 @@ update msg model =
             ( { model | form = Form.update validation formMsg model.form }, Cmd.none )
 
         AddRep ->
-            ( model , Cmd.none)
+            ( { model | rep = model.rep + 1 }, Cmd.none )
+
+        SetPic pic ->
+            ( { model | pic = pic  }, Cmd.none )
 
 searchFilter : String -> User -> Bool
 searchFilter search user =

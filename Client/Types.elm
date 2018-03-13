@@ -15,6 +15,7 @@ type Route
     | Challenges
     | Promoted
     | Rapper
+    | NewPicWhoDis
     | NotFoundRoute
 
 type alias User =
@@ -36,6 +37,8 @@ type alias Model =
     , form :
         Form () CreateUser
     , rappers : List User
+    , rep : Int
+    , pic : String 
     }
 
 type alias CreateUser =
@@ -52,5 +55,6 @@ type Msg
     | OnLocationChange Location
     | SendCreateUser User
     | UpdateForm Form.Msg
-    | AddRep 
+    | AddRep
+    | SetPic String 
 --    | UpdateBattle (WebData User)

@@ -15,6 +15,7 @@ matchers =
         , Url.map Types.Promoted (Url.s "promoted")
         , Url.map Types.Challenges (Url.s "challenges")
         , Url.map Types.Rapper (Url.s "rapper")
+        , Url.map Types.NewPicWhoDis (Url.s "NewPicWhoDis")
         ]
 
 parseLocation : Location -> Types.Route

@@ -87,7 +87,7 @@ page : Model -> Html Msg
 page model =
     case model.route of
         Types.Main ->
-            root model
+            root model 
 
         Types.Account ->
             Session.View.viewAccount model.session
@@ -102,13 +102,16 @@ page model =
             viewLogin model.session
 
         Types.Challenges ->
-            viewChallenges
+            viewChallenges model
 
         Types.Promoted ->
-            viewChallenges
+            viewChallenges model
 
         Types.Rapper ->
-            Session.View.viewRapper
+            Session.View.viewRapper model
+
+        Types.NewPicWhoDis ->
+            setPic model
 
         Types.NotFoundRoute ->
             notFoundView
@@ -207,32 +210,29 @@ viewLogin session =
             div []
                 [ h1 [] [ text "You are already logged in!" ] ]
 
-viewChallenges : Html Msg
-viewChallenges =
+viewChallenges : Model -> Html Msg
+viewChallenges model =
   div [ class "row"
       , id "battle"
       , style [("width","1300px")]
       ]
       [ div [ class "col text-center" ]
             [ div [ class "card"
-
                   ]
                 [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
                 , p [ class "card-title" ] [ text "name" ]
                 , p [ class "card-title text-danger" ] [ text "Rep 75,521"]
                 , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                , a [ href "#search" ]
-                    [ button
-                    [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
+                , button
+                    [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!", onClick AddRep ]
                     [ text "Give Rep" ]
-                    ]
                 , button [ class "btn btn-light text-warning"
                          , attribute "data-toggle" "popover"
                          , attribute "data-placement" "left"
                          , title "This is the Rep that you have left to give!"
                          , disabled True
                          ]
-                         [ text "(50 left)"]
+                         [ text (toString model.rep) ]
                 , div [ class "dropdown" ]
                           [
                           button [ class "btn btn-light dropdown-toggle", attribute "data-toggle" "dropdown", attribute "aria-expanded" "false"
@@ -299,3 +299,11 @@ viewChallenges =
                   ]
             ]
       ]
+
+setPic : Model -> Html Msg
+setPic model =
+    div []
+        [
+         img [ src model.pic ] []
+        , input [ type_ "text", placeholder "Input a picture in string form!", onInput SetPic  ] []
+        ]

@@ -42,7 +42,9 @@ init location =
                         , rep = 75000
                         , links = "Link"
                         }
-                      ]
+                       ]
+          , rep = 0
+          , pic = ""
           }
           , Cmd.none
         )

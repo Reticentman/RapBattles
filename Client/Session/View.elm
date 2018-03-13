@@ -27,50 +27,47 @@ viewAccount session =
                   ]
               ]
 
-viewRapper : Html Msg
-viewRapper =
+viewRapper : Model ->  Html Msg
+viewRapper model  =
     div [ class "row"
         , id "rapperview"
-        ]
-        [
-        div [ id "ProfilePic" ]
-            [ img [ class "card-img-top img-rounded center w-100 l-100"
-                  , src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
+        ] 
+        [ div [ id "ProfilePic" ]
+              [ div [] <| List.map (\r -> img [ src r.image ] []) model.rappers
+              , h5 [ class "alert alert-dark" ]
+                  [ text "" ]
+              , button [ class "btn btn-success w-50" ] [ text "Donate!" ]
+              , button [ class "btn btn-light dropdown-toggle w-50"
+                       , attribute "data-toggle" "dropdown"
+                       , attribute "aria-expanded" "false"
+                       ]
+                    [ text "Links"
+                    ]
+              , div [ class "dropdown-menu" ]
+                  [ a [ class "dropdown-item", href "" ]
+                        [ text "Personal Link 1" ]
+                  , a [ class "dropdown-item", href "http://chanceraps.com" ]
+                      [ text "Personal Link 2" ]
+                  , a [ class "dropdown-item", href "http://chanceraps.com" ]
+                      [ text "Personal Link 3" ]
+                  , a [ class "dropdown-item", href "http://chanceraps.com" ]
+                      [ text "Personal Link 4" ]
+                  , a [ class "dropdown-item", href "http://chanceraps.com" ]
+                      [ text "Personal Link 5" ]
                   ]
-                  []
-            , h5 [ class "alert alert-dark" ]
-                 [ text "Chance The Rapper" ]
-            , button [ class "btn btn-success w-50" ] [ text "Donate!" ]
-            , button [ class "btn btn-light dropdown-toggle w-50"
-                     , attribute "data-toggle" "dropdown"
-                     , attribute "aria-expanded" "false"
-                     ]
-                   [ text "Links"
-                   ]
-                   , div [ class "dropdown-menu" ]
-                         [ a [ class "dropdown-item", href "http://chanceraps.com" ]
-                             [ text "Personal Link 1" ]
-                         , a [ class "dropdown-item", href "http://chanceraps.com" ]
-                             [ text "Personal Link 2" ]
-                         , a [ class "dropdown-item", href "http://chanceraps.com" ]
-                             [ text "Personal Link 3" ]
-                         , a [ class "dropdown-item", href "http://chanceraps.com" ]
-                             [ text "Personal Link 4" ]
-                         , a [ class "dropdown-item", href "http://chanceraps.com" ]
-                             [ text "Personal Link 5" ]
-                         ]
               , h1 [] [ text "Statistics" ]
               , p [ class "alert alert-primary" ] [ text "Battles Performed: 7,577" ]
               , p [ class "alert alert-success" ] [ text "Battles Won: 7,077" ]
               , p [ class "alert alert-danger" ] [ text "Battles Lost: 500"]
               , p [ class "alert alert-dark" ] [ text "Win Percentage: 93.4%" ]
-              , p [ class "alert alert-info" ] [ text "Rep 75,521 (Rank: 2)"]
+              , p [ class "alert alert-info" ] [ text ("Rep (Rank: 2)")]
               , button [ class "btn btn-info", title "Click here to give Rep to rappers to help them get bigger!" ] [ text "Give Rep" ]
               ]
         , div [ class "pl-50" ]
-              [ iframe [ width 650
-                       , height 350
-                       , src "https://www.youtube.com/embed/wsrPWMeYPxY?ecver=2" ]
-                       []
-              ]
+            [ iframe [ width 650
+                     , height 350
+                     , src "https://www.youtube.com/embed/wsrPWMeYPxY?ecver=2" ]
+                  []
+            ]
         ]
+        
