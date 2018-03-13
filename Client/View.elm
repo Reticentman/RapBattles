@@ -92,12 +92,6 @@ page model =
         Types.Account ->
             Session.View.viewAccount model.session
 
-        Types.Signup ->
-            div
-                []
-                [ Html.map UpdateForm (viewSignup model.form)
-                ]
-
         Types.Login ->
             viewLogin model.session
 

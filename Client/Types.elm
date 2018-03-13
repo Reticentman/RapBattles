@@ -8,8 +8,7 @@ import RemoteData exposing (RemoteData(..), WebData)
 
 
 type Route
-    = Signup
-    | Account
+    = Account
     | Main
     | Login
     | Challenges
@@ -29,13 +28,8 @@ type alias User =
     }
 
 type alias Model =
-    { search : Maybe String
-    , searchFilter : String -> User -> Bool
-    , route : Route
+    { route : Route
     , session : Session
---    , battle : WebData (User)
-    , form :
-        Form () CreateUser
     , rappers : List User
     , rep : Int
     , pic : String 
@@ -51,10 +45,6 @@ type alias Session =
     Maybe User
 
 type Msg
-    = Search String
-    | OnLocationChange Location
-    | SendCreateUser User
-    | UpdateForm Form.Msg
+    = OnLocationChange Location
     | AddRep
     | SetPic String 
---    | UpdateBattle (WebData User)

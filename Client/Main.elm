@@ -4,7 +4,7 @@ import Form
 import Navigation exposing (Location)
 import RemoteData
 import Routing
-import State exposing (update, searchFilter)
+import State exposing (update)
 import Types exposing (Model, Msg(..))
 import View exposing (root)
 
@@ -30,10 +30,7 @@ init location =
 
     in
         ( { route = currentRoute
-          , search = Nothing
-          , searchFilter = searchFilter
           , session = Nothing
-          , form = Form.initial [] State.validation
           , rappers = [ { username = "Chance The Rapper"
                         , image = "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
                         , email = "chance@gmail.com"
