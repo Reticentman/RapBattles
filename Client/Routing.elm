@@ -12,7 +12,7 @@ matchers =
         , Url.map Types.Login (Url.s "login")
         , Url.map Types.Promoted (Url.s "promoted")
         , Url.map Types.Challenges (Url.s "challenges")
-        , Url.map Types.Rapper (Url.s "rapper")
+        , Url.map Types.Rapper (Url.s "rapper" </> string)
         , Url.map Types.NewPicWhoDis (Url.s "NewPicWhoDis")
         ]
 

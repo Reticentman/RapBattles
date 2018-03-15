@@ -10,6 +10,7 @@ import RemoteData exposing (RemoteData(..))
 import Session.View
 import Set exposing (Set)
 import Types exposing (..)
+import Dict exposing (..)
 
 bootstrap =
     div []
@@ -101,8 +102,13 @@ page model =
         Types.Promoted ->
             viewChallenges model
 
-        Types.Rapper ->
-            Session.View.viewRapper model
+        Types.Rapper username ->
+            case Dict.get username model.rappers of
+                Just u ->
+                     Session.View.viewRapper u
+
+                Nothing ->
+                     text "Sorry bruv"
 
         Types.NewPicWhoDis ->
             setPic model
@@ -115,79 +121,6 @@ notFoundView =
     div []
         [ text "Not found"
         ]
-
-viewSignup : Form () CreateUser -> Html Form.Msg
-viewSignup form =
-    let
-        errorFor field =
-            case field.liveError of
-                Just error ->
-                    div [ class "error" ] [ text (toString error) ]
-
-                Nothing ->
-                    text ""
-
-        image =
-            Form.getFieldAsString "image" form
-
-        userID =
-            Form.getFieldAsString "userID" form
-
-        username =
-            Form.getFieldAsString "username" form
-
-        available =
-            Form.getFieldAsBool "available" form
-
-        password =
-            Form.getFieldAsString "password" form
-
-        email =
-            Form.getFieldAsString "email" form
-
-
-        submitBtnAttributes =
-            [ onClick Form.Submit
-            , classList
-                [ ( "btn btn-default", True )
-                ]
-            ]
-    in
-        div [ class "form-horizontal"
-            , id "signup"
-            ]
-            [ h1 [ class "form" ] [ text "Signup Page" ]
-            , Input.textInput username
-                [ class "form-control"
-                , placeholder "Username"
-                ]
-            , br [] []
-            , Input.textInput email
-                [ class "form-control"
-                , placeholder "Email"
-                ]
-            , br [] []
-            , Input.passwordInput password
-                [ class "form-control"
-                , placeholder "Password"
-                , type_ "password"]
-            , formActions
-                [ button submitBtnAttributes
-                    [ text "Submit" ]
-                , text " "
-                ]
-            ]
-
-
-row : List (Html Form.Msg) -> Html Form.Msg
-row content =
-    div [ class "row" ] content
-
-
-formActions : List (Html Form.Msg) -> Html Form.Msg
-formActions content =
-    row
-        [ div [ class "col-xs-offset-3 col-xs-9" ] content ]
 
 viewLogin : Session -> Html Msg
 viewLogin session =
@@ -204,76 +137,79 @@ viewLogin session =
             div []
                 [ h1 [] [ text "You are already logged in!" ] ]
 
+
+
+
 viewChallenges : Model -> Html Msg
 viewChallenges model =
-  div [ class "row"
-      , id "battle"
-      , style [("width","1300px")]
-      ]
-      [ div [ class "col text-center" ]
-            [ div [ class "card"
-                  ]
-                [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
-                , p [ class "card-title" ] [ text "name" ]
-                , p [ class "card-title text-danger" ] [ text "Rep 75,521"]
-                , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                , button
-                    [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!", onClick AddRep ]
-                    [ text "Give Rep" ]
-                , button [ class "btn btn-light text-warning"
-                         , attribute "data-toggle" "popover"
-                         , attribute "data-placement" "left"
-                         , title "This is the Rep that you have left to give!"
-                         , disabled True
-                         ]
-                         [ text (toString model.rep) ]
-                , div [ class "dropdown" ]
-                          [
-                          button [ class "btn btn-light dropdown-toggle", attribute "data-toggle" "dropdown", attribute "aria-expanded" "false"
-                                 ]
-                                 [ text "Profile"
-                                 ]
-                          , div [ class "dropdown-menu" ]
-                                [ a [ class "dropdown-item", href "#search" ]
-                                [ text "Username" ]
+                    div [ class "row"
+                        , id "battle"
+                        , style [("width","1300px")]
+                        ]
+                    [ div [ class "col text-center" ]
+                          [ div [ class "card"
+                                ]
+                                [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
+                                , p [ class "card-title" ] [ text "name" ]
+                                , p [ class "card-title text-danger" ] [ text "Rep 75,521"]
+                                , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
+                                , button
+                                      [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!", onClick AddRep ]
+                                      [ text "Give Rep" ]
+                                , button [ class "btn btn-light text-warning"
+                                         , attribute "data-toggle" "popover"
+                                         , attribute "data-placement" "left"
+                                         , title "This is the Rep that you have left to give!"
+                                         , disabled True
+                                         ]
+                                      [ text (toString model.rep) ]
+                                , div [ class "dropdown" ]
+                                    [
+                                     button [ class "btn btn-light dropdown-toggle", attribute "data-toggle" "dropdown", attribute "aria-expanded" "false"
+                                            ]
+                                         [ text "Profile"
+                                         ]
+                                    , div [ class "dropdown-menu" ]
+                                        [ a [ class "dropdown-item", href "#search" ]
+                                              [ text "Username" ]
+                                        ]
+                                    ]
                                 ]
                           ]
-                 ]
-            ]
-      , div [ class "col-sm text-center"
-            , id "middleBattle"
-            ]
-            [ p [ class "alert alert-success",style [("font-size", "34px")]] [ text "Nick with a $7mil Donation!" ]
-            , div []
-                  [ iframe [ width 600
-                     , height 200
-                     , src "https://www.youtube.com/embed/tOnTPW1MTZ4" ]
-                     []
-                  ]
-            , div []
-                [ textarea [ style [("width", "600px")
-                                   ,("height", "150px")] ] []
-                ]
-                ]
-      , div [ class "col-sm text-center" ]
-            [ div [ class "card"
-                  ]
-                  [ img
-                      [ class "card-img-top", class "rounded"
-                      , src "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"
-                      , class "img-rounded flex-center" ] []
-                  , p [ class "card-title" ] [ text "DJ Khalad" ]
-                  , p [ class "text-info text-danger" ] [ text "Rep 100k+" ]
-                  , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                  , a [ href "#/search" ] -- test
-                      [ button
-                      [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
-                      [ text "Give Rep" ]
-                      ]
-                  , button [ class "btn btn-light text-warning"
-                           , attribute "data-toggle" "popover"
-                           , attribute "data-placement" "right"
-                           , title "This is the Rep that you have left to give!"
+                    , div [ class "col-sm text-center"
+                          , id "middleBattle"
+                          ]
+                          [ p [ class "alert alert-success",style [("font-size", "34px")]] [ text "Nick with a $7mil Donation!" ]
+                          , div []
+                              [ iframe [ width 600
+                                       , height 200
+                                       , src "https://www.youtube.com/embed/tOnTPW1MTZ4" ]
+                                    []
+                              ]
+                          , div []
+                              [ textarea [ style [("width", "600px")
+                                                 ,("height", "150px")] ] []
+                              ]
+                          ]
+                    , div [ class "col-sm text-center" ]
+                          [ div [ class "card"
+                              ]
+                              [ img
+                                [ class "card-img-top", class "rounded"
+                                , src "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"
+                                , class "img-rounded flex-center" ] []
+                              , p [ class "card-title" ] [ text "DJ Khalad" ]
+                              , p [ class "text-info text-danger" ] [ text "Rep 100k+" ]
+                              , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
+                              , a [ href "#/search" ] -- test
+                                  [ button
+                                        [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
+                                        [ text "Give Rep" ]
+                                  ]
+                              , button [ class "btn btn-light text-warning"
+                                       , attribute "data-toggle" "popover"
+                                       , attribute "data-placement" "right"
+                                       , title "This is the Rep that you have left to give!"
                            , disabled True --enable this when purchasing Rep is avaible, this will be a link to said store.
                            ]
                            [ text "(50 left)"]

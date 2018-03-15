@@ -5,7 +5,7 @@ import Form.Input as Input
 import Form.Validate as Validate exposing (..)
 import Navigation exposing (Location)
 import RemoteData exposing (RemoteData(..), WebData)
-
+import Dict exposing (..)
 
 type Route
     = Account
@@ -13,7 +13,7 @@ type Route
     | Login
     | Challenges
     | Promoted
-    | Rapper
+    | Rapper String
     | NewPicWhoDis
     | NotFoundRoute
 
@@ -30,10 +30,11 @@ type alias User =
 type alias Model =
     { route : Route
     , session : Session
-    , rappers : List User
+    , rappers : Dict.Dict String User
     , rep : Int
-    , pic : String 
+    , pic : String
     }
+
 
 type alias CreateUser =
     { username : String
