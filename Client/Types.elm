@@ -7,6 +7,7 @@ import Navigation exposing (Location)
 import RemoteData exposing (RemoteData(..), WebData)
 import Dict exposing (..)
 
+
 type Route
     = Main
     | Login
@@ -15,6 +16,7 @@ type Route
     | Rapper String
     | NewPicWhoDis
     | NotFoundRoute
+
 
 type alias User =
     { username : String
@@ -25,6 +27,7 @@ type alias User =
     , rep : Int
     , links : String
     }
+
 
 type alias Model =
     { route : Route
@@ -41,10 +44,12 @@ type alias CreateUser =
     , password : String
     }
 
+
 type alias Session =
     Maybe User
+
 
 type Msg
     = OnLocationChange Location
     | AddRep
-    | SetPic String 
+    | SetPic String

@@ -16,6 +16,7 @@ matchers =
         , Url.map Types.NewPicWhoDis (Url.s "NewPicWhoDis")
         ]
 
+
 parseLocation : Location -> Types.Route
 parseLocation location =
     case (Url.parseHash matchers location) of

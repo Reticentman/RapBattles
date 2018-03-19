@@ -24,7 +24,8 @@ update msg model =
             ( { model | rep = model.rep + 1 }, Cmd.none )
 
         SetPic pic ->
-            ( { model | pic = pic  }, Cmd.none )
+            ( { model | pic = pic }, Cmd.none )
+
 
 addRep : User -> Int
 addRep user =
