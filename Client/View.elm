@@ -90,11 +90,8 @@ page model =
         Types.Main ->
             root model 
 
-        Types.Account ->
-            Session.View.viewAccount model.session
-
         Types.Login ->
-            viewLogin model.session
+            notFoundView
 
         Types.Challenges ->
             viewChallenges model
@@ -121,24 +118,6 @@ notFoundView =
     div []
         [ text "Not found"
         ]
-
-viewLogin : Session -> Html Msg
-viewLogin session =
-    case session of
-        Nothing ->
-            div [ class "well" ]
-                [ input [ class "form-control", type_ "text", placeholder "Username" ] []
-                , input [ class "form-control", type_ "password", placeholder "Password" ] []
-                , button [ class "btn btn-default" ] [ text "Login" ]
-                , a [ href "#signup/" ] [ button [ class "btn btn-default" ] [ text "Signup" ] ]
-                ]
-
-        Just user ->
-            div []
-                [ h1 [] [ text "You are already logged in!" ] ]
-
-
-
 
 viewChallenges : Model -> Html Msg
 viewChallenges model =

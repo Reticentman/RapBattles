@@ -8,8 +8,7 @@ import RemoteData exposing (RemoteData(..), WebData)
 import Dict exposing (..)
 
 type Route
-    = Account
-    | Main
+    = Main
     | Login
     | Challenges
     | Promoted

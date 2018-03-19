@@ -6,39 +6,16 @@ import Html.Events exposing (..)
 import RemoteData exposing (RemoteData(..))
 import Types exposing (..)
 
-viewAccount : Session -> Html Msg
-viewAccount session =
-    case session of
-      Nothing ->
-          a [ href "#login" ] [ text "You must log in!" ]
-      Just user ->
-          div []
-              [ h1 [] [ text <| user.username ++ "'s account " ]
-              , div []
-                  [ label
-                      [ style [ ( "padding", "0px" ) ]
-                      ]
-                      [ input [ type_ "checkbox" ] []
-                      , text "Ready to Rap?"
-                      ]
-                  , div []
-                      [ p [] [ a [ href "#schedule/" ] [ text "Schedule a rap" ] ]
-                      ]
-                  ]
-              ]
 
 viewRapper : User  ->  Html Msg
 viewRapper user  =
-    a
-        [ href ("#user/" ++ user.username)
-        ]
-        [ div [ class "row"
+         div [ class "row"
             , id "rapperview"
             ]
             [ div [ id "ProfilePic" ]
                   [ div []  [ img [ src  user.image ] [] ]
                   , h5 [ class "alert alert-dark" ]
-                      [ text "" ]
+                      [ text user.username ]
                   , button [ class "btn btn-success w-50" ] [ text "Donate!" ]
                   , button [ class "btn btn-light dropdown-toggle w-50"
                            , attribute "data-toggle" "dropdown"
@@ -59,11 +36,7 @@ viewRapper user  =
                           [ text "Personal Link 5" ]
                       ]
                   , h1 [] [ text "Statistics" ]
-                  , p [ class "alert alert-primary" ] [ text "Battles Performed: 7,577" ]
-                  , p [ class "alert alert-success" ] [ text "Battles Won: 7,077" ]
-                  , p [ class "alert alert-danger" ] [ text "Battles Lost: 500"]
-                  , p [ class "alert alert-dark" ] [ text "Win Percentage: 93.4%" ]
-                  , p [ class "alert alert-info" ] [ text ("Rep (Rank: 2)")]
+                  , p [ class "alert alert-info" ] [ text <| "Rep earned: " ++ (toString user.rep) ]
                   , button [ class "btn btn-info", title "Click here to give Rep to rappers to help them get bigger!" ] [ text "Give Rep" ]
                   ]
             , div [ class "pl-50" ]
@@ -73,4 +46,3 @@ viewRapper user  =
                       []
                 ]
             ]
-          ]
