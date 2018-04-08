@@ -196,8 +196,8 @@ viewChallenges model =
             [ class "col w-50"
             , id "middleBattle"
             ]
-            [ p [ class "alert alert-success", style [ ( "font-size", "34px" ) ] ] [ text "Nick with a $7mil Donation!" ]
-            , div []
+            [ p [ class "row alert alert-success", style [ ( "font-size", "34px" ) ] ] [ text "Nick with a $7mil Donation!" ]
+            , div [ class "row" ]
                 [ iframe
                     [ width 600
                     , height 200
@@ -205,9 +205,9 @@ viewChallenges model =
                     ]
                     []
                 ]
-            , div []
+            , div [ class "row" ]
                 [ textarea
-                    []
+                    [ class "w-100 h-100" ]
                     []
                 ]
             ]
