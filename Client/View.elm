@@ -101,7 +101,7 @@ page model =
             root model
 
         Types.Login ->
-            notFoundView
+            viewLogin model.session
 
         Types.Challenges ->
             viewChallenges model
@@ -131,49 +131,69 @@ notFoundView =
         ]
 
 
+viewLogin : Session -> Html Msg
+viewLogin session =
+    case session of
+        Nothing ->
+            div [ class "well" ]
+                [ input [ class "form-control", type_ "text", placeholder "Username" ] []
+                , input [ class "form-control", type_ "password", placeholder "Password" ] []
+                , button [ class "btn btn-default" ] [ text "Login" ]
+                , a [ href "#signup/" ] [ button [ class "btn btn-default" ] [ text "Signup" ] ]
+                ]
+
+        Just user ->
+            div []
+                [ h1 [] [ text "You are already logged in!" ] ]
+
+
+imgChance : String
+imgChance =
+    "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg"
+
+
+imgDjKhalad : String
+imgDjKhalad =
+    "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"
+
+
+repTitle : String
+repTitle =
+    "Click here to give Rep to rappers to help them get bigger!"
+
+
 viewChallenges : Model -> Html Msg
 viewChallenges model =
     div
         [ class "row"
         , id "battle"
-        , style [ ( "width", "1300px" ) ]
         ]
-        [ div [ class "col text-center" ]
-            [ div
-                [ class "card"
+        [ div [ class "card col w-25" ]
+            [ img [ class "card-img-top img-rounded flex-center", src imgChance ] []
+            , h1 [ class "card-title", style [ ( "font-size", "34px" ) ] ] [ text "Chance The Rapper" ]
+            , p [ class "card-title text-danger" ] [ text "Rep 75,521" ]
+            , a [ href "http://chanceraps.com", class "card-body text-primary" ] [ text "Chances Website" ]
+            , button
+                [ class "btn btn-light", title repTitle, onClick AddRep ]
+                [ text "Give Rep" ]
+            , button
+                [ class "btn btn-light text-warning"
+                , attribute "data-toggle" "popover"
+                , attribute "data-placement" "left"
+                , title "This is the Rep that you have left to give!"
+                , disabled True
                 ]
-                [ img [ class "card-img-top", class "rounded", src "https://static.billets.ca/artist/cjc/s1/chance-the-rapper-200x200.jpg", class "img-rounded" ] []
-                , p [ class "card-title" ] [ text "name" ]
-                , p [ class "card-title text-danger" ] [ text "Rep 75,521" ]
-                , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                , button
-                    [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!", onClick AddRep ]
-                    [ text "Give Rep" ]
-                , button
-                    [ class "btn btn-light text-warning"
-                    , attribute "data-toggle" "popover"
-                    , attribute "data-placement" "left"
-                    , title "This is the Rep that you have left to give!"
-                    , disabled True
+                [ text (toString model.rep) ]
+            , div []
+                [ a
+                    [ class "btn btn-light"
+                    , href "#rapper/ChanceTheRapper"
                     ]
-                    [ text (toString model.rep) ]
-                , div [ class "dropdown" ]
-                    [ button
-                        [ class "btn btn-light dropdown-toggle"
-                        , attribute "data-toggle" "dropdown"
-                        , attribute "aria-expanded" "false"
-                        ]
-                        [ text "Profile"
-                        ]
-                    , div [ class "dropdown-menu" ]
-                        [ a [ class "dropdown-item", href "#search" ]
-                            [ text "Username" ]
-                        ]
-                    ]
+                    [ text "Username" ]
                 ]
             ]
         , div
-            [ class "col-sm text-center"
+            [ class "col w-50"
             , id "middleBattle"
             ]
             [ p [ class "alert alert-success", style [ ( "font-size", "34px" ) ] ] [ text "Nick with a $7mil Donation!" ]
@@ -187,54 +207,41 @@ viewChallenges model =
                 ]
             , div []
                 [ textarea
-                    [ style
-                        [ ( "width", "600px" )
-                        , ( "height", "150px" )
-                        ]
-                    ]
+                    []
                     []
                 ]
             ]
-        , div [ class "col-sm text-center" ]
-            [ div
-                [ class "card"
+        , div
+            [ class "col card w-25"
+            ]
+            [ img
+                [ class "card-img-top"
+                , class "rounded"
+                , src imgDjKhalad
+                , class "img-rounded flex-center"
                 ]
-                [ img
-                    [ class "card-img-top"
-                    , class "rounded"
-                    , src "http://img.ulximg.com/image/300x300/cover/1392851025_3adb526857f8dd14ea9832390610cf40.jpg/9fc641ae561ef021c4aa2a7393b0e89d/1392851025_dj_khaled_27.jpg"
-                    , class "img-rounded flex-center"
+                []
+            , p [ class "card-title", style [ ( "font-size", "34px" ) ] ] [ text "DJ Khalad" ]
+            , p [ class "text-info text-danger" ] [ text "Rep 100k+" ]
+            , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
+            , a [ href "" ]
+                [ button
+                    [ class "btn btn-light", title repTitle ]
+                    [ text "Give Rep" ]
+                ]
+            , button
+                [ class "btn btn-light text-warning"
+                , attribute "data-toggle" "popover"
+                , attribute "data-placement" "right"
+                , title "This is the Rep that you have left to give!"
+                , disabled True --enable this when purchasing Rep is avaible, this will be a link to said store.
+                ]
+                [ text "(50 left)" ]
+            , div [ class "dropdown" ]
+                [ button
+                    [ class "btn btn-light"
                     ]
-                    []
-                , p [ class "card-title" ] [ text "DJ Khalad" ]
-                , p [ class "text-info text-danger" ] [ text "Rep 100k+" ]
-                , a [ href "#", class "card-body text-primary" ] [ text "Personal Links here" ]
-                , a [ href "#/search" ]
-                    -- test
-                    [ button
-                        [ class "btn btn-light", title "Click here to give Rep to rappers to help them get bigger!" ]
-                        [ text "Give Rep" ]
-                    ]
-                , button
-                    [ class "btn btn-light text-warning"
-                    , attribute "data-toggle" "popover"
-                    , attribute "data-placement" "right"
-                    , title "This is the Rep that you have left to give!"
-                    , disabled True --enable this when purchasing Rep is avaible, this will be a link to said store.
-                    ]
-                    [ text "(50 left)" ]
-                , div [ class "dropdown" ]
-                    [ button
-                        [ class "btn btn-light dropdown-toggle"
-                        , attribute "data-toggle" "dropdown"
-                        , attribute "aria-expanded" "false"
-                        ]
-                        [ text "Profile"
-                        ]
-                    , div [ class "dropdown-menu" ]
-                        [ a [ class "dropdown-item", href "#search" ]
-                            [ text "Username" ]
-                        ]
+                    [ text "Profile"
                     ]
                 ]
             ]
